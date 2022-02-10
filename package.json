@@ -1,0 +1,24 @@
+{
+	"name": "cent.js",
+	"version": "1.0.0",
+	"description": "Javascript library to communicate with Centrifugo HTTP API",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SocketSomeone/cent.js.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/SocketSomeone/cent.js/issues"
+	},
+	"homepage": "https://github.com/SocketSomeone/cent.js#readme",
+	"dependencies": {
+		"axios": "0.25.0"
+	},
+	"devDependencies": {
+	}
+}
