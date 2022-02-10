@@ -20,5 +20,6 @@
 		"axios": "0.25.0"
 	},
 	"devDependencies": {
+		"husky": "^7.0.4"
 	}
 }
