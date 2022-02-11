@@ -1,6 +1,6 @@
 import { CentClient } from './index';
 
-describe('Centrifuge', () => {
+describe('Centrifugo API Client', () => {
 	const client = new CentClient({
 		host: process.env.CENTRIFUGO_HOST,
 		token: process.env.CENTRIFUGO_TOKEN

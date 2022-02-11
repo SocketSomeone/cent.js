@@ -1,9 +1,12 @@
-export interface PublishResult {
+import { CentMethods } from './cent-methods.enum';
+import { StreamPosition } from './cent-params.interface';
+
+export interface PublishResponse {
 	offset?: number;
 	epoch?: string;
 }
 
-export interface OverrideResult {
+export interface OverrideResponse {
 	presence?: boolean;
 	join_leave?: boolean;
 	position?: boolean;
@@ -17,14 +20,14 @@ export interface ClientInfo {
 	chan_info?: Record<string, any>;
 }
 
-export type PresenceResult = { presence: Record<string, ClientInfo> };
+export type PresenceResponse = { presence: Record<string, ClientInfo> };
 
-export type PresenceStatsResult = {
+export type PresenceStatsResponse = {
 	num_clients: number;
 	num_users: number;
 };
 
-export type ChannelsResult = { channels: Record<string, Omit<PresenceStatsResult, 'num_users'>> };
+export type ChannelsResponse = { channels: Record<string, Omit<PresenceStatsResponse, 'num_users'>> };
 
 interface Node {
 	name: string;
@@ -42,12 +45,27 @@ interface NodeMetrics {
 	items: Record<string, number>;
 }
 
-export interface HistoryResult {
+export interface HistoryResponse {
 	epoch: string;
 	offset: string;
 	publications: Array<{ data: Record<string, any>; offset: number }>;
 }
 
-export type EmptyResult = {};
+export type EmptyResponse = {};
 
-export type InfoResult = { nodes: Node[] };
+export type InfoResponse = { nodes: Node[] };
+
+export interface CentResponses {
+	[CentMethods.Publish]: PublishResponse;
+	[CentMethods.Broadcast]: PublishResponse[];
+	[CentMethods.Subscribe]: OverrideResponse;
+	[CentMethods.Unsubscribe]: EmptyResponse;
+	[CentMethods.Disconnect]: EmptyResponse;
+	[CentMethods.Refresh]: EmptyResponse;
+	[CentMethods.Presence]: PresenceResponse;
+	[CentMethods.PresenceStats]: PresenceStatsResponse;
+	[CentMethods.History]: HistoryResponse;
+	[CentMethods.HistoryRemove]: EmptyResponse;
+	[CentMethods.Channels]: ChannelsResponse;
+	[CentMethods.Info]: InfoResponse;
+}
