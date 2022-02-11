@@ -2,8 +2,8 @@ import { CentClient } from './index';
 
 describe('Centrifuge', () => {
 	const client = new CentClient({
-		host: 'https://gateway.fotrum.space/api',
-		token: 'my_api_key'
+		host: process.env.CENTRIFUGO_HOST,
+		token: process.env.CENTRIFUGO_TOKEN
 	});
 
 	it('should return info', async () => {

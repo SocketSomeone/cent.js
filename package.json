@@ -17,6 +17,12 @@
 	"types": "./dist/index.d.ts",
 	"author": "Alexey Filippov <socket.someone@gmail.com>",
 	"license": "MIT",
+	"keywords": [
+		"centrifugo",
+		"ws",
+		"websocket",
+		"websockets"
+	],
 	"dependencies": {
 		"axios": "0.25.0"
 	},
