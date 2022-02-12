@@ -1,7 +1,5 @@
 # cent.js
 
-___
-
 Javascript library to communicate with Centrifugo HTTP API.
 
 ## Installation
