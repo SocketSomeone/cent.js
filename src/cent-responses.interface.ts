@@ -1,23 +1,13 @@
 import { CentMethods } from './cent-methods.enum';
-import { StreamPosition } from './cent-params.interface';
+import { ClientInfo, Node, StreamPosition } from './interfaces';
 
-export interface PublishResponse {
-	offset?: number;
-	epoch?: string;
-}
+export type PublishResponse = Partial<StreamPosition>;
 
 export interface OverrideResponse {
 	presence?: boolean;
 	join_leave?: boolean;
 	position?: boolean;
 	recover?: boolean;
-}
-
-export interface ClientInfo {
-	client: string;
-	user: string;
-	conn_info?: Record<string, any>;
-	chan_info?: Record<string, any>;
 }
 
 export type PresenceResponse = { presence: Record<string, ClientInfo> };
@@ -28,22 +18,6 @@ export type PresenceStatsResponse = {
 };
 
 export type ChannelsResponse = { channels: Record<string, Omit<PresenceStatsResponse, 'num_users'>> };
-
-interface Node {
-	name: string;
-	num_channels: number;
-	num_clients: number;
-	num_users: number;
-	uid: string;
-	uptime: number;
-	version: string;
-	metrics: NodeMetrics;
-}
-
-interface NodeMetrics {
-	interval: number;
-	items: Record<string, number>;
-}
 
 export interface HistoryResponse {
 	epoch: string;

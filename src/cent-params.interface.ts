@@ -1,4 +1,5 @@
 import { CentMethods } from './cent-methods.enum';
+import { StreamPosition } from './interfaces';
 
 type UserParams = { user: string };
 
@@ -25,11 +26,6 @@ type RefreshParams = UserParams & ClientParams;
 type ChannelsParams = { pattern: string };
 
 type InfoParams = {};
-
-export interface StreamPosition {
-	offset: number;
-	epoch: string;
-}
 
 export interface CentParams {
 	[CentMethods.Publish]: PublishParams;
