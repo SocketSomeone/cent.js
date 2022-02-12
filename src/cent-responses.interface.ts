@@ -1,5 +1,6 @@
 import { CentMethods } from './cent-methods.enum';
 import { ClientInfo, Node, StreamPosition } from './interfaces';
+import { Publication } from './interfaces/publication.interface';
 
 export type PublishResponse = Partial<StreamPosition>;
 
@@ -19,11 +20,9 @@ export type PresenceStatsResponse = {
 
 export type ChannelsResponse = { channels: Record<string, Omit<PresenceStatsResponse, 'num_users'>> };
 
-export interface HistoryResponse {
-	epoch: string;
-	offset: string;
-	publications: Array<{ data: Record<string, any>; offset: number }>;
-}
+export type HistoryResponse = StreamPosition & {
+	publications: Array<Publication>;
+};
 
 export type EmptyResponse = {};
 

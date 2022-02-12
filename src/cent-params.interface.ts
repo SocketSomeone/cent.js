@@ -7,7 +7,7 @@ type ChannelParams = { channel: string };
 
 type DataParams = { data: Record<string, any> };
 
-type SkipHistoryParams = { skip_history: boolean };
+type SkipHistoryParams = { skip_history?: boolean };
 
 type ClientParams = { client: string };
 
