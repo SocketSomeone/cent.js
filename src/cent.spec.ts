@@ -2,7 +2,7 @@ import { CentClient } from './index';
 
 describe('Centrifugo API Client', () => {
 	const client = new CentClient({
-		host: process.env.CENTRIFUGO_HOST,
+		url: process.env.CENTRIFUGO_HOST,
 		token: process.env.CENTRIFUGO_TOKEN
 	});
 

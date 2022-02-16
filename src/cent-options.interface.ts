@@ -1,5 +1,5 @@
 export interface CentOptions {
-	host: string;
+	url: string;
 	token?: string;
 	timeout?: number;
 }

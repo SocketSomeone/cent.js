@@ -16,7 +16,7 @@ export class CentClient {
 		return (params?: CentParams[M]): Promise<CentResponses[M]> =>
 			axios({
 				method: 'POST',
-				url: this.options.host,
+				url: this.options.url,
 				timeout: this.options.timeout,
 				headers: {
 					'Content-Type': 'application/json',
