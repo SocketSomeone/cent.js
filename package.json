@@ -24,7 +24,7 @@
 		"websockets"
 	],
 	"dependencies": {
-		"axios": "0.26.0"
+		"axios": "0.26.1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "16.2.1",
