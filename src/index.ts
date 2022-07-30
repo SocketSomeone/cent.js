@@ -1,3 +1,3 @@
 export * from './cent.client';
 export * from './cent.exception';
-export * from './cent-options.interface';
+export * from './interfaces/cent-options.interface';

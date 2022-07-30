@@ -1,8 +1,6 @@
 import axios from 'axios';
-import { CentOptions } from './cent-options.interface';
-import { CentParams } from './cent-params.interface';
 import { CentException } from './cent.exception';
-import { CentResponses } from './cent-responses.interface';
+import { CentOptions, CentParams, CentResponses } from './interfaces';
 import { CentMethods } from './cent-methods.enum';
 
 export class CentClient {

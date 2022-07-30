@@ -1,5 +1,5 @@
-import { CentMethods } from './cent-methods.enum';
-import { StreamPosition } from './interfaces';
+import { CentMethods } from '../cent-methods.enum';
+import { StreamPosition } from './index';
 
 type UserParams = { user: string };
 

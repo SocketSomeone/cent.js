@@ -1,5 +1,5 @@
-import { CentMethods } from './cent-methods.enum';
-import { ClientInfo, Node, Publication, StreamPosition } from './interfaces';
+import { CentMethods } from '../cent-methods.enum';
+import { ClientInfo, Node, Publication, StreamPosition } from './index';
 
 export type PublishResponse = Partial<StreamPosition>;
 
