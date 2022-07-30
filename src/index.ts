@@ -1,3 +1,4 @@
-export * from './cent.client';
+export * from './interfaces';
+export * from './cent-methods.enum';
 export * from './cent.exception';
-export * from './interfaces/cent-options.interface';
+export * from './cent.client';
