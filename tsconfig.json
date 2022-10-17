@@ -9,6 +9,7 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"target": "es2017",
+		"skipLibCheck": true,
 		"sourceMap": false,
 		"outDir": "./dist"
 	},
