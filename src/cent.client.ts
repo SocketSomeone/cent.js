@@ -1,28 +1,24 @@
-import axios from 'axios';
-import { CentException } from './cent.exception';
-import { CentOptions, CentParams, CentResponses } from './interfaces';
-import { CentMethods } from './cent-methods.enum';
+import {Axios} from 'axios';
+import {CentException} from './cent.exception';
+import {CentOptions, CentParams, CentResponses} from './interfaces';
+import {CentMethods} from './cent-methods.enum';
 
-export class CentClient {
-	private readonly options: CentOptions;
-
+export class CentClient extends Axios {
 	public constructor(options: CentOptions) {
-		this.options = options;
+		super({
+			baseURL: options.url,
+			timeout: options.timeout,
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `apikey ${options.token}`
+			}
+		});
 	}
 
 	private methodFactory<M extends CentMethods>(method: M) {
 		return (params?: CentParams[M]): Promise<CentResponses[M]> =>
-			axios({
-				method: 'POST',
-				url: this.options.url,
-				timeout: this.options.timeout,
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `apikey ${this.options.token}`
-				},
-				data: { method, params }
-			})
-				.then(({ data }) => data?.result)
+			this.post('/', {method, params})
+				.then(({data}) => data?.result)
 				.catch(err => {
 					throw new CentException(err);
 				});
