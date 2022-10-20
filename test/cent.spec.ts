@@ -1,4 +1,4 @@
-import { CentClient } from '../src';
+import { CentClient, CentMethods } from '../src';
 
 describe('Centrifugo API Client', () => {
 	const client = new CentClient({
