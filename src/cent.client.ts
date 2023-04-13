@@ -1,11 +1,11 @@
 import { Axios } from 'axios';
 import { CentException } from './cent.exception';
-import { CentOptions, CentResponses, Command, CommandParams, CommandResponse } from './interfaces';
+import { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
 import { CentMethods } from './cent-methods.enum';
+import {fetch, request} from "undici";
+import {json} from "stream/consumers";
 
-type Head<T extends readonly unknown[]> = T extends readonly [infer U, ...infer _] ? U : T[0] | undefined;
-
-export class CentClient extends Axios {
+export class CentClient {
 	public constructor(private readonly centOptions: CentOptions) {
 		super({
 			baseURL: centOptions.url,
@@ -17,10 +17,22 @@ export class CentClient extends Axios {
 		});
 	}
 
+	private async post<T = any>(url: string, data: Record<string, any>): Promise<T> {
+		return fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `apikey ${this.centOptions.token}`
+
+			}
+		}).then(res => res.json() as any);
+	}
+
 	private methodFactory<M extends CentMethods>(method: M) {
 		return (params?: CommandParams<M>): Promise<CommandResponse<M>> =>
-			this.post('', JSON.stringify({ method, params }))
-				.then(res => JSON.parse(res.data)?.result)
+			this.post(this.centOptions.url, { method, params })
+				.then(res => res?.result)
 				.catch(err => {
 					throw new CentException(err);
 				});
