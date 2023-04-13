@@ -4,20 +4,13 @@ import { CentOptions, Command, CommandParams, CommandResponse } from './interfac
 import { CentMethods } from './cent-methods.enum';
 import {fetch, request} from "undici";
 import {json} from "stream/consumers";
+import {BodyInit} from "undici/types/fetch";
 
 export class CentClient {
 	public constructor(private readonly centOptions: CentOptions) {
-		super({
-			baseURL: centOptions.url,
-			timeout: centOptions.timeout,
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `apikey ${centOptions.token}`
-			}
-		});
 	}
 
-	private async post<T = any>(url: string, data: Record<string, any>): Promise<T> {
+	private async post<T = any>(url: string, data: BodyInit): Promise<T> {
 		return fetch(url, {
 			method: 'POST',
 			body: JSON.stringify(data),
@@ -31,7 +24,7 @@ export class CentClient {
 
 	private methodFactory<M extends CentMethods>(method: M) {
 		return (params?: CommandParams<M>): Promise<CommandResponse<M>> =>
-			this.post(this.centOptions.url, { method, params })
+			this.post(this.centOptions.url, JSON.stringify({ method, params }))
 				.then(res => res?.result)
 				.catch(err => {
 					throw new CentException(err);
