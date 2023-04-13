@@ -1,10 +1,8 @@
-import { Axios } from 'axios';
 import { CentException } from './cent.exception';
 import { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
 import { CentMethods } from './cent-methods.enum';
-import {fetch, request} from "undici";
-import {json} from "stream/consumers";
-import {BodyInit} from "undici/types/fetch";
+import { fetch } from "undici";
+import { BodyInit } from "undici/types/fetch";
 
 export class CentClient {
 	public constructor(private readonly centOptions: CentOptions) {
