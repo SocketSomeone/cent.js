@@ -10,7 +10,7 @@ export class CentClient {
 	private async post<T = any>(url: string, data: BodyInit): Promise<T> {
 		return fetch(url, {
 			method: 'POST',
-			body: JSON.stringify(data),
+			body: data,
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `apikey ${this.centOptions.token}`
