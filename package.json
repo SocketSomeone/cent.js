@@ -1,7 +1,7 @@
 {
 	"name": "cent.js",
 	"description": "Javascript library to communicate with Centrifugo HTTP API",
-	"version": "2.1.6",
+	"version": "3.0.0",
 	"scripts": {
 		"build": "rimraf -rf dist && tsc -p tsconfig.json",
 		"prepublish:npm": "npm run build",
