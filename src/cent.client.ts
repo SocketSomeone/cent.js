@@ -1,12 +1,11 @@
 import { CentException } from './cent.exception';
 import { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
 import { CentMethods } from './cent-methods.enum';
-import { fetch } from "undici";
-import { BodyInit } from "undici/types/fetch";
+import { fetch } from 'undici';
+import { BodyInit } from 'undici/types/fetch';
 
 export class CentClient {
-	public constructor(private readonly centOptions: CentOptions) {
-	}
+	public constructor(private readonly centOptions: CentOptions) {}
 
 	private async post<T = any>(url: string, data: BodyInit): Promise<T> {
 		return fetch(url, {
@@ -15,7 +14,6 @@ export class CentClient {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `apikey ${this.centOptions.token}`
-
 			}
 		}).then(res => res.json() as any);
 	}
