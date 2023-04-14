@@ -1,13 +1,12 @@
 import { CentException } from './cent.exception';
 import { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
 import { CentMethods } from './cent-methods.enum';
-import { fetch } from 'undici';
-import { BodyInit } from 'undici/types/fetch';
+import { fetch, BodyInit, Response } from 'undici';
 
 export class CentClient {
 	public constructor(private readonly centOptions: CentOptions) {}
 
-	private async post<T = any>(url: string, data: BodyInit): Promise<T> {
+	private async post(url: string, data: BodyInit): Promise<Response> {
 		return fetch(url, {
 			method: 'POST',
 			body: data,
@@ -15,12 +14,13 @@ export class CentClient {
 				'Content-Type': 'application/json',
 				Authorization: `apikey ${this.centOptions.token}`
 			}
-		}).then(res => res.json() as any);
+		});
 	}
 
 	private methodFactory<M extends CentMethods>(method: M) {
 		return (params?: CommandParams<M>): Promise<CommandResponse<M>> =>
 			this.post(this.centOptions.url, JSON.stringify({ method, params }))
+				.then(res => res.json() as any)
 				.then(res => res?.result)
 				.catch(err => {
 					throw new CentException(err);
@@ -52,11 +52,15 @@ export class CentClient {
 	public getInfo = this.methodFactory(CentMethods.Info);
 
 	public pipeline<C extends CentMethods>(commands: Command<C>[]): Promise<CommandResponse<C>[]> {
-		return this.post('', commands.map(({ method, params }) => JSON.stringify({ method, params })).join('\n'))
+		return this.post(
+			this.centOptions.url,
+			commands.map(({ method, params }) => JSON.stringify({ method, params })).join('\n')
+		)
+			.then(res => res.text())
 			.then(res =>
-				res.data
+				res
 					.split('\n')
-					.map(JSON.parse)
+					.map(str => JSON.parse(str))
 					.map(({ result }) => result)
 			)
 			.catch(err => {
