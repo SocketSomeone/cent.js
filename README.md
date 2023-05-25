@@ -19,7 +19,7 @@ const { CentClient } = require('cent.js');
 
 // Initialize client instance.
 const client = new CentClient({
-    host: 'http://localhost:8000/api',
+    url: 'http://localhost:8000/api',
     token: 'XXX'
 })
 
