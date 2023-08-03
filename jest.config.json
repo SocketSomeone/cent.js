@@ -10,5 +10,5 @@
 		"^.+\\.(t|j)s$": "ts-jest"
 	},
 	"testEnvironment": "node",
-	"coverageDirectory": "../coverage"
+	"coverageDirectory": "./coverage"
 }
