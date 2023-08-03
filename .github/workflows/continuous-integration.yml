@@ -26,10 +26,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run Tests
-        run: yarn run test
-        env:
-          CENTRIFUGO_HOST: "http://localhost:8000/api"
-
       - name: Run ESlint
         run: yarn lint
+      
+      - name: Run Tests
+        run: yarn run test --coverage
+        env:
+          CENTRIFUGO_HOST: "http://localhost:8000/api"
+      
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
