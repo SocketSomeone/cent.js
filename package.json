@@ -27,7 +27,7 @@
 		"undici": "5.23.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "17.7.0",
+		"@commitlint/cli": "17.7.1",
 		"@commitlint/config-angular": "17.7.0",
 		"@types/jest": "29.5.3",
 		"@types/node": "20.4.9",
