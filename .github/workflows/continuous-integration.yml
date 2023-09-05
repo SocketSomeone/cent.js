@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Start Centrifugo
         run: docker run -d -p 8000:8000 centrifugo/centrifugo:latest centrifugo --api_insecure
