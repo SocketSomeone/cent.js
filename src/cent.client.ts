@@ -21,7 +21,12 @@ export class CentClient {
 		return (params?: CommandParams<M>): Promise<CommandResponse<M>> =>
 			this.post(this.centOptions.url, JSON.stringify({ method, params }))
 				.then(res => res.json() as any)
-				.then(res => res?.result)
+				.then((res) => {
+					if(res?.error){
+						throw new CentException(res.error);
+					}
+					return res;
+				})
 				.catch(err => {
 					throw new CentException(err);
 				});
