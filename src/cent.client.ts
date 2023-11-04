@@ -19,9 +19,14 @@ export class CentClient {
 
 	private methodFactory<M extends CentMethods>(method: M) {
 		return (params?: CommandParams<M>): Promise<CommandResponse<M>> =>
-			this.post(this.centOptions.url, JSON.stringify({ method, params }))
+			this.post(this.centOptions.url, JSON.stringify({method, params}))
 				.then(res => res.json() as any)
-				.then(res => res?.result)
+				.then((res) => {
+					if (res?.error) {
+						throw new Error(JSON.stringify(res?.error, null, 2));
+					}
+					return res?.result ?? {};
+				})
 				.catch(err => {
 					throw new CentException(err);
 				});
