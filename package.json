@@ -24,7 +24,7 @@
 		"websockets"
 	],
 	"dependencies": {
-		"undici": "5.27.0"
+		"undici": "5.27.2"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "18.2.0",
