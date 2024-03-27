@@ -1,5 +1,5 @@
 export interface CentOptions {
 	url: string;
-	token?: string;
+	apiKey?: string;
 	timeout?: number;
 }

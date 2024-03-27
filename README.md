@@ -20,7 +20,7 @@ const {CentClient} = require('cent.js');
 // Initialize client instance.
 const client = new CentClient({
     url: 'http://localhost:8000/api',
-    token: 'XXX'
+    apiKey: 'XXX'
 });
 
 // Publish data into channel
