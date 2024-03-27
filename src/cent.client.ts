@@ -12,7 +12,7 @@ export class CentClient {
 			body: data,
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `apikey ${this.centOptions.token}`
+				'X-API-Key': this.centOptions.apiKey
 			}
 		});
 	}
