@@ -1,7 +1,6 @@
 import { CentException } from './cent.exception';
 import { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
 import { CentMethods } from './cent-methods.enum';
-import { BodyInit, fetch, Response } from 'undici';
 
 export class CentClient {
 	public constructor(private readonly centOptions: CentOptions) {}
@@ -19,7 +18,7 @@ export class CentClient {
 
 	private methodFactory<M extends CentMethods>(method: M) {
 		return (params?: CommandParams<M>): Promise<CommandResponse<M>> =>
-			this.post(this.centOptions.url, JSON.stringify({ method, params }))
+			this.post(`${this.centOptions.url}/${method}`, JSON.stringify({ params }))
 				.then(res => res.json() as any)
 				.then(res => {
 					if (res?.error) {

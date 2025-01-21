@@ -23,9 +23,6 @@
 		"websocket",
 		"websockets"
 	],
-	"dependencies": {
-		"undici": "7.2.3"
-	},
 	"devDependencies": {
 		"@commitlint/cli": "19.6.1",
 		"@commitlint/config-angular": "19.7.0",
