@@ -23,7 +23,7 @@ export type HistoryResponse = StreamPosition & {
 	publications: Array<Publication>;
 };
 
-export type EmptyResponse = {};
+export type EmptyResponse = object;
 
 export type InfoResponse = { nodes: Node[] };
 

@@ -25,7 +25,7 @@ type RefreshParams = UserParams & ClientParams;
 
 type ChannelsParams = { pattern: string };
 
-type InfoParams = {};
+type InfoParams = object;
 
 export interface CentParams {
 	[CentMethods.Publish]: PublishParams;
