@@ -17,7 +17,7 @@ jobs:
         run: docker run -d -p 8000:8000 centrifugo/centrifugo:latest centrifugo --http_api.insecure
 
       - name: Install Node v20
-        uses: actions/setup-node@v4.2.0
+        uses: actions/setup-node@v4.3.0
         with:
           node-version: 20
           cache: yarn
