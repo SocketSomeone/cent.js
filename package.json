@@ -41,7 +41,7 @@
 		"prettier": "3.5.3",
 		"release-it": "18.1.2",
 		"rimraf": "6.0.1",
-		"ts-jest": "29.2.6",
+		"ts-jest": "29.3.0",
 		"typescript": "5.8.2",
 		"typescript-eslint": "^8.21.0"
 	},
