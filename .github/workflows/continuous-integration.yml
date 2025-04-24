@@ -29,8 +29,11 @@ jobs:
       - name: Run ESlint
         run: yarn lint
 
+      - name: Run Build
+        run: yarn build
+
       - name: Run Tests
-        run: yarn run test --coverage
+        run: yarn test:ci
         env:
           CENTRIFUGO_HOST: "http://localhost:8000/api"
 
