@@ -1,1 +1,1 @@
-npx prettier --write "src/**/*.ts"
+npx lint-staged
