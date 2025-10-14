@@ -1,6 +1,6 @@
-import { CentMethods } from '../cent-methods.enum';
-import { CentParams } from './cent-params.interface';
-import { CentResponses } from './cent-responses.interface';
+import type { CentMethods } from '../cent-methods.enum';
+import type { CentParams } from './cent-params.interface';
+import type { CentResponses } from './cent-responses.interface';
 
 export interface Command<M extends CentMethods> {
 	method: M;

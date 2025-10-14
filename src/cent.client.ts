@@ -1,5 +1,5 @@
 import { CentException } from './cent.exception';
-import { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
+import type { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
 import { CentMethods } from './cent-methods.enum';
 
 export class CentClient {

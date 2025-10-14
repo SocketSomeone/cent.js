@@ -1,9 +1,12 @@
-import { CentMethods } from '../cent-methods.enum';
-import { ClientInfo, Node, Publication, StreamPosition } from './index';
+import type { CentMethods } from '../cent-methods.enum';
+import type { StreamPosition } from './stream-position.interface';
+import type { ClientInfo } from './client-info.interface';
+import type { Publication } from './publication.interface';
+import type { Node } from './node.interface';
 
 export type PublishResponse = Partial<StreamPosition>;
 
-export interface OverrideResponse {
+export interface SubscribeResponse {
 	presence?: boolean;
 	join_leave?: boolean;
 	position?: boolean;
@@ -27,10 +30,12 @@ export type EmptyResponse = object;
 
 export type InfoResponse = { nodes: Node[] };
 
+export type BroadcastResponse = PublishResponse[];
+
 export interface CentResponses {
 	[CentMethods.Publish]: PublishResponse;
-	[CentMethods.Broadcast]: PublishResponse[];
-	[CentMethods.Subscribe]: OverrideResponse;
+	[CentMethods.Broadcast]: BroadcastResponse;
+	[CentMethods.Subscribe]: SubscribeResponse;
 	[CentMethods.Unsubscribe]: EmptyResponse;
 	[CentMethods.Disconnect]: EmptyResponse;
 	[CentMethods.Refresh]: EmptyResponse;

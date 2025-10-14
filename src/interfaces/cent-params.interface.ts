@@ -1,6 +1,6 @@
-import { CentMethods } from '../cent-methods.enum';
+import type { CentMethods } from '../cent-methods.enum';
 import type { FilterNode } from './filter-node.interface';
-import type { StreamPosition } from './cent-responses.interface';
+import type { StreamPosition } from './stream-position.interface';
 
 type UserParams = { user: string };
 
@@ -32,6 +32,12 @@ type ChannelsParams = { pattern: string };
 
 type InfoParams = object;
 
+type HistoryParams = ChannelParams & {
+	since?: StreamPosition;
+	limit?: number;
+	reverse?: boolean;
+};
+
 export interface CentParams {
 	[CentMethods.Publish]: PublishParams;
 	[CentMethods.Broadcast]: BroadcastParams;
@@ -41,11 +47,7 @@ export interface CentParams {
 	[CentMethods.Refresh]: RefreshParams;
 	[CentMethods.Presence]: ChannelParams;
 	[CentMethods.PresenceStats]: ChannelParams;
-	[CentMethods.History]: ChannelParams & {
-		since?: StreamPosition;
-		limit?: number;
-		reverse?: boolean;
-	};
+	[CentMethods.History]: HistoryParams;
 	[CentMethods.HistoryRemove]: ChannelParams;
 	[CentMethods.Channels]: ChannelsParams;
 	[CentMethods.Info]: InfoParams;
