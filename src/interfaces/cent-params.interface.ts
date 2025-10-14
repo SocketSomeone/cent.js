@@ -1,5 +1,6 @@
 import { CentMethods } from '../cent-methods.enum';
-import { FilterNode, StreamPosition } from './index';
+import type { FilterNode } from './filter-node.interface';
+import type { StreamPosition } from './cent-responses.interface';
 
 type UserParams = { user: string };
 
