@@ -1,9 +1,11 @@
 import { CentMethods } from '../cent-methods.enum';
-import { StreamPosition } from './index';
+import { FilterNode, StreamPosition } from './index';
 
 type UserParams = { user: string };
 
 type ChannelParams = { channel: string };
+
+type TagsFilterParams = { tagsFilter?: FilterNode };
 
 type DataParams = { data: Record<string, any> };
 
@@ -17,7 +19,7 @@ type PublishParams = ChannelParams & DataParams & TagsParams & SkipHistoryParams
 
 type BroadcastParams = DataParams & TagsParams & SkipHistoryParams & { channels: string[] };
 
-type SubscribeParams = UserParams & ChannelParams & ClientParams;
+type SubscribeParams = UserParams & ChannelParams & ClientParams & TagsFilterParams;
 
 type UnsubscribeParams = UserParams & ChannelParams & ClientParams;
 

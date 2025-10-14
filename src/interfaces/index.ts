@@ -6,3 +6,4 @@ export * from './cent-options.interface';
 export * from './cent-params.interface';
 export * from './cent-responses.interface';
 export * from './command.interface';
+export * from './filter-node.interface';
