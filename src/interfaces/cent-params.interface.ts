@@ -7,13 +7,15 @@ type ChannelParams = { channel: string };
 
 type DataParams = { data: Record<string, any> };
 
+type TagsParams = { tags?: Record<string, string> };
+
 type SkipHistoryParams = { skip_history?: boolean };
 
 type ClientParams = { client?: string };
 
-type PublishParams = ChannelParams & DataParams & SkipHistoryParams;
+type PublishParams = ChannelParams & DataParams & TagsParams & SkipHistoryParams;
 
-type BroadcastParams = DataParams & SkipHistoryParams & { channels: string[] };
+type BroadcastParams = DataParams & TagsParams & SkipHistoryParams & { channels: string[] };
 
 type SubscribeParams = UserParams & ChannelParams & ClientParams;
 
