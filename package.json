@@ -52,7 +52,7 @@
 		"jest": "30.2.0",
 		"lint-staged": "^16.1.6",
 		"prettier": "3.7.4",
-		"release-it": "19.1.0",
+		"release-it": "19.2.1",
 		"rimraf": "6.1.2",
 		"ts-jest": "29.4.6",
 		"typescript": "5.9.3",
