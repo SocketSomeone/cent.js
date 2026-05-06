@@ -50,7 +50,7 @@
 		"globals": "^17.0.0",
 		"husky": "9.1.7",
 		"jest": "30.3.0",
-		"lint-staged": "^16.1.6",
+		"lint-staged": "^17.0.0",
 		"prettier": "3.8.3",
 		"release-it": "20.0.1",
 		"rimraf": "6.1.3",
