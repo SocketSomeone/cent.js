@@ -1,6 +1,6 @@
-import type { CentMethods } from '../cent-methods.enum';
-import type { FilterNode } from './filter-node.interface';
 import type { StreamPosition } from './stream-position.interface';
+import type { FilterNode } from './filter-node.interface';
+import type { CentMethods } from '../cent-methods.enum';
 
 type UserParams = { user: string };
 
@@ -16,27 +16,27 @@ type SkipHistoryParams = { skip_history?: boolean };
 
 type ClientParams = { client?: string };
 
-type PublishParams = ChannelParams & DataParams & TagsParams & SkipHistoryParams;
+type PublishParams = ChannelParams & DataParams & SkipHistoryParams & TagsParams;
 
-type BroadcastParams = DataParams & TagsParams & SkipHistoryParams & { channels: string[] };
+type BroadcastParams = { channels: string[] } & DataParams & SkipHistoryParams & TagsParams;
 
-type SubscribeParams = UserParams & ChannelParams & ClientParams & TagsFilterParams;
+type SubscribeParams = ChannelParams & ClientParams & TagsFilterParams & UserParams;
 
-type UnsubscribeParams = UserParams & ChannelParams & ClientParams;
+type UnsubscribeParams = ChannelParams & ClientParams & UserParams;
 
-type DisconnectParams = UserParams & ClientParams;
+type DisconnectParams = ClientParams & UserParams;
 
-type RefreshParams = UserParams & ClientParams;
+type RefreshParams = ClientParams & UserParams;
 
 type ChannelsParams = { pattern: string };
 
 type InfoParams = object;
 
-type HistoryParams = ChannelParams & {
+type HistoryParams = {
 	since?: StreamPosition;
 	limit?: number;
 	reverse?: boolean;
-};
+} & ChannelParams;
 
 export interface CentParams {
 	[CentMethods.Publish]: PublishParams;

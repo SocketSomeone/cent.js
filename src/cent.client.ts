@@ -1,6 +1,7 @@
-import { CentException } from './cent.exception';
 import type { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
+
 import { CentMethods } from './cent-methods.enum';
+import { CentException } from './cent.exception';
 
 export class CentClient {
 	public constructor(private readonly centOptions: CentOptions) {}

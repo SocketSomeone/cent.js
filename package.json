@@ -45,7 +45,7 @@
 		"@types/node": "25.6.2",
 		"eslint": "^10.0.0",
 		"eslint-config-prettier": "10.1.8",
-		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-perfectionist": "^5.9.0",
 		"eslint-plugin-prettier": "^5.2.3",
 		"globals": "^17.0.0",
 		"husky": "9.1.7",
@@ -58,7 +58,6 @@
 		"typescript": "6.0.3",
 		"typescript-eslint": "^8.21.0"
 	},
-	"peerDependencies": {},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SocketSomeone/cent.js.git"
