@@ -8,5 +8,5 @@ src
 .eslintrc
 .gitattributes
 tsconfig.json
-yarn.lock
+package-lock.json
 yarn-error.log

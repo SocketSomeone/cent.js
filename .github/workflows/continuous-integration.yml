@@ -21,24 +21,24 @@ jobs:
       - name: Start Centrifugo
         run: docker run -d -p 8000:8000 centrifugo/centrifugo:latest centrifugo --http_api.insecure
 
-      - name: Install Node v22
+      - name: Install Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Run ESlint
-        run: yarn lint
+        run: npm run lint
 
       - name: Run Build
-        run: yarn build
+        run: npm run build
 
       - name: Run Tests
-        run: yarn test:ci
+        run: npm run test:ci
         env:
           CENTRIFUGO_HOST: "http://localhost:8000/api"
 
