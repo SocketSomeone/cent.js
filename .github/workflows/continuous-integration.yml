@@ -22,7 +22,7 @@ jobs:
         run: docker run -d -p 8000:8000 centrifugo/centrifugo:latest centrifugo --http_api.insecure
 
       - name: Install Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: lts/*
           cache: npm
