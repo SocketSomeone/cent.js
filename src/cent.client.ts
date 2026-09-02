@@ -23,7 +23,7 @@ export class CentClient {
 				.then(res => res.json() as any)
 				.then(res => {
 					if (res?.error) {
-						throw new CentException(res?.error);
+						throw new CentException(JSON.stringify(res.error, null, 2));
 					}
 
 					return res?.result ?? {};
