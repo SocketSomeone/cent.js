@@ -1,8 +1,8 @@
-import type { StreamPosition } from './stream-position.interface';
-import type { Publication } from './publication.interface';
-import type { ClientInfo } from './client-info.interface';
-import type { CentMethods } from '../cent-methods.enum';
-import type { Node } from './node.interface';
+import type { StreamPosition } from './stream-position.interface.js';
+import type { Publication } from './publication.interface.js';
+import type { ClientInfo } from './client-info.interface.js';
+import type { CentMethods } from '../cent-methods.enum.js';
+import type { Node } from './node.interface.js';
 
 export type PublishResponse = Partial<StreamPosition>;
 
