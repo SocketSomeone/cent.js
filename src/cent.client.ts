@@ -1,7 +1,7 @@
-import type { CentOptions, Command, CommandParams, CommandResponse } from './interfaces';
+import type { CentOptions, Command, CommandParams, CommandResponse } from './interfaces/index.js';
 
-import { CentMethods } from './cent-methods.enum';
-import { CentException } from './cent.exception';
+import { CentMethods } from './cent-methods.enum.js';
+import { CentException } from './cent.exception.js';
 
 export class CentClient {
 	public constructor(private readonly centOptions: CentOptions) {}
@@ -12,7 +12,7 @@ export class CentClient {
 			body: data,
 			headers: {
 				'Content-Type': 'application/json',
-				'X-API-Key': this.centOptions.apiKey
+				...(this.centOptions.apiKey === undefined ? {} : { 'X-API-Key': this.centOptions.apiKey })
 			}
 		});
 	}

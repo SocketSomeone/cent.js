@@ -1,6 +1,6 @@
-import type { StreamPosition } from './stream-position.interface';
-import type { FilterNode } from './filter-node.interface';
-import type { CentMethods } from '../cent-methods.enum';
+import type { StreamPosition } from './stream-position.interface.js';
+import type { FilterNode } from './filter-node.interface.js';
+import type { CentMethods } from '../cent-methods.enum.js';
 
 type UserParams = { user: string };
 

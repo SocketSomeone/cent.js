@@ -15,7 +15,7 @@ First see [available API methods in documentation](https://centrifugal.dev/docs/
 This library contains `CentClient` class to send messages to Centrifugo from your node-powered backend:
 
 ```javascript
-const {CentClient} = require('cent.js');
+import { CentClient } from 'cent.js';
 
 // Initialize client instance.
 const client = new CentClient({
@@ -39,6 +39,15 @@ await client.getPresence({channel: 'channel'})
 await client.getChannels()
 await client.getInfo()
 await client.removeHistory({channel: 'channel'})
+```
+
+`cent.js` is a native ESM package. The ESM-only package boundary is a breaking change for older Node.js releases and
+CommonJS loaders. Use Node.js 20.19.x or Node.js 22.13+.
+
+Modern CommonJS applications on those Node.js versions can synchronously load the same ESM package:
+
+```javascript
+const { CentClient } = require('cent.js');
 ```
 
 ## Stay in touch

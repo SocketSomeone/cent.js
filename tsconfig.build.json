@@ -1,8 +1,15 @@
 {
 	"extends": "./tsconfig.json",
-	"include": [
-		"src/**/*"
-	],
+	"compilerOptions": {
+		"noEmit": false,
+		"declaration": true,
+		"removeComments": false,
+		"sourceMap": false,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"types": ["node"]
+	},
+	"include": ["src/**/*.ts"],
 	"exclude": [
 		"node_modules",
 		"dist",
